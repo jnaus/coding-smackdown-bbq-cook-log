@@ -1,9 +1,22 @@
-<div class="hero-unit">
-  <h1>'Allo, 'Allo!</h1>
-  <p>You now have</p>
-  <ul>
-      <li ng-repeat="thing in awesomeThings">{{thing}}</li>
-  </ul>
-  <p>installed.</p>
-  <h3>Enjoy coding! - Yeoman</h3>
+<div class="row-fluid">
+    <h2>Upcoming Events</h2>
+    <div>
+        <p>Date: {{ event.Date }}</p>
+        <p>Event: {{ event.Name }}</p>
+    </div>
 </div>
+<div class="row-fluid">
+    <h2>Active Cook Logs</h2>
+    <div>
+        <p>Date: {{ event.Date }}</p>
+        <p>Event: {{ event.Name }}</p>
+    </div>
+</div>
+<div class="row-fluid">
+    <h2>Active Timers</h2>
+    <div>
+        <p>Time: {{ timer.NextEventTime }}</p>
+        <p>Action: {{ timer.NextEventAction }}</p>
+    </div>
+</div>
+

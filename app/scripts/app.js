@@ -19,6 +19,10 @@ angular.module('codingSmackdownBbqCookLogApp', ['ngRoute', 'dropstore-ng', 'ui.b
         templateUrl: 'views/cooktimer.html',
         controller: 'CooktimerCtrl'
       })
+      .when('/menu', {
+        templateUrl: 'views/menu.html',
+        controller: 'MenuCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
