@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('codingSmackdownBbqCookLogApp')
-  .controller('CalendarCtrl', function ($scope, $location) {
+  .controller('CalendarCtrl', ['$scope', '$location', 'DataService', function ($scope, $location, DataService) {
         /* config object */
         $scope.uiConfig = {
             calendar:{
@@ -35,4 +35,10 @@ angular.module('codingSmackdownBbqCookLogApp')
         $scope.addEvent = function() {
             $location.path('/add-event')
         };
-  });
+
+        $scope.init = function() {
+            $scope.eventSources = DataService.getCookLogs();
+        };
+
+        $scope.init();
+  }]);

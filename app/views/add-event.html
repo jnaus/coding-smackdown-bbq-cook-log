@@ -1,12 +1,12 @@
 <div class="row-fluid">
-    <form class="form form-horizontal" method="post" name="addEvent">
+    <form class="form form-horizontal" name="addEvent">
         <fieldset>
             <div class="control-group">
                 <label class="control-label" for="eventName">Event Name </label>
 
                 <div class="controls">
                     <input class="input-large" id="eventName" name="eventName" type="text"
-                           ng-model="currentLog.event.name"
+                           ng-model="currentLog.title"
                            required>
 
                     <div ng-show="addEvent.eventName.$error.required && addEvent.$dirty">
@@ -18,12 +18,8 @@
                 <label class="control-label" for="startDate">Start Date </label>
 
                 <div class="controls">
-                    <input id="startDate" name="startDate" type="text"
-                           datepicker-popup="dd-MMMM-yyyy" ng-model="currentLog.event.startDate"
-                           is-open="startDateOpened" datepicker-options="dateOptions" ng-required="true">
-                    <button class="btn" ng-click="openStartDate()"><i class="icon-calendar"></i></button>
-                    <div ng-show="addEvent.startDate.$error.required && addEvent.$dirty">
-                        <p><i class="icon icon-warning-sign"></i>Please enter a valid date</p>
+                    <div class="well well-small pull-left" ng-model="currentLog.start">
+                        <datepicker show-weeks="showWeeks"></datepicker>
                     </div>
                 </div>
             </div>
@@ -31,12 +27,8 @@
                 <label class="control-label" for="endDate">End Date </label>
 
                 <div class="controls">
-                    <input id="endDate" name="endDate" type="text"
-                           datepicker-popup="dd-MMMM-yyyy" ng-model="currentLog.event.endDate"
-                           is-open="endDateOpened" datepicker-options="dateOptions" ng-required="true">
-                    <button class="btn" ng-click="openEndDate()"><i class="icon-calendar"></i></button>
-                    <div ng-show="addEvent.endDate.$error.required && addEvent.$dirty">
-                        <p><i class="icon icon-warning-sign"></i>Please enter a valid date</p>
+                    <div class="well well-small pull-left" ng-model="currentLog.end">
+                        <datepicker show-weeks="showWeeks"></datepicker>
                     </div>
                 </div>
             </div>
@@ -44,7 +36,7 @@
                 <div class="controls">
                     <label class="checkbox">
                         <input class="input-large" id="stateChampionship" name="stateChampionship" type="checkbox"
-                               ng-model="currentLog.event.stateChampionship" required>
+                               ng-model="currentLog.event.stateChampionship" >
                         Is this a State Championship? </label>
                 </div>
             </div>
@@ -53,31 +45,31 @@
 
                 <div class="controls">
                     <input class="input-large" id="contactName" name="contactName" type="text"
-                           ng-model="currentLog.event.contactName" required>
+                           ng-model="currentLog.event.contactName" >
                 </div>
             </div>
             <div class="control-group">
                 <label class="control-label" for="contactPhone">Contact Phone </label>
 
                 <div class="controls">
-                    <input class="input-large" id="contactPhone" name="contactPhone" type="text"
-                           ng-model="currentLog.event.contactPhone" required>
+                    <input class="input-large" id="contactPhone" name="contactPhone" type="tel"
+                           ng-model="currentLog.event.contactPhone" >
                 </div>
             </div>
             <div class="control-group">
                 <label class="control-label" for="contactEmail">Contact Email </label>
 
                 <div class="controls">
-                    <input class="input-large" id="contactEmail" name="contactEmail" type="text"
-                           ng-model="currentLog.event.contactEmail" required>
+                    <input class="input-large" id="contactEmail" name="contactEmail" type="email"
+                           ng-model="currentLog.event.contactEmail" >
                 </div>
             </div>
             <div class="control-group">
                 <label class="control-label" for="eventWebsite">Web Site </label>
 
                 <div class="controls">
-                    <input class="input-large" id="eventWebsite" name="eventWebsite" type="text"
-                           ng-model="currentLog.event.eventWebsite" required>
+                    <input class="input-large" id="eventWebsite" name="eventWebsite" type="url"
+                           ng-model="currentLog.event.eventWebsite" >
                 </div>
             </div>
             <div class="control-group">
@@ -85,7 +77,7 @@
 
                 <div class="controls">
                     <input class="input-large" id="prizeMoney" name="prizeMoney" type="number"
-                           ng-model="currentLog.event.prizeMoney" required>
+                           ng-model="currentLog.event.prizeMoney" >
                 </div>
             </div>
             <div class="control-group">
@@ -93,8 +85,11 @@
 
                 <div class="controls">
                     <input class="input-large" id="certifiedJudgePercentage" name="certifiedJudgePercentage"
-                           type="number"
-                           ng-model="currentLog.event.certifiedJudgePercentage" required>
+                           type="number" min="0" max="100"
+                           ng-model="currentLog.event.certifiedJudgePercentage" >
+                    <div ng-show="(addEvent.certifiedJudgePercentage.$error.min || addEvent.certifiedJudgePercentage.$error.max) && addEvent.$dirty">
+                        <p><i class="icon icon-warning-sign"></i>Please enter a value between 0 and 100</p>
+                    </div>
                 </div>
             </div>
             <div class="control-group">
@@ -102,14 +97,12 @@
 
                 <div class="controls">
                     <input class="input-large" id="numberOfTeams" name="numberOfTeams" type="number"
-                           ng-model="currentLog.event.numberOfTeams" required>
+                           ng-model="currentLog.event.numberOfTeams" >
                 </div>
             </div>
             <div class="control-group">
                 <div class="controls">
-                    <input name="saveBtn" type="submit" title="Save" ng-click="addEvent()"
-                           ng-disabled="addEvent.$invalid"
-                           class="btn btn-large btn-primary"/>
+                    <a name="saveBtn" ng-click="addNewEvent()" ng-disabled="addEvent.$invalid" class="btn btn-large btn-primary" >Save</a>
                     <a href="#/" name="cancelBtn" class="btn btn-large btn-danger">Cancel</a>
                 </div>
             </div>

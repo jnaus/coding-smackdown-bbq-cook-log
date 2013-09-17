@@ -102,4 +102,7 @@ angular.module('codingSmackdownBbqCookLogApp', ['ngRoute', 'dropstore-ng', 'ui.b
       .otherwise({
         redirectTo: '/'
       });
-  });
+  })
+    .run(['DataService', function(DataService){
+        DataService.linkAccount();
+    }]);

@@ -1,20 +1,33 @@
 var codingsmackdown = codingsmackdown || {};
 
-codingsmackdown.Log = function() {
+codingsmackdown.LogEntryRecord = function() {
     var self = this;
+    self.id = '';
+    self.title = '';
+    self.allDay = true;
+    self.start = new Date();
+    self.end = new Date();
+};
+
+codingsmackdown.LogEntry = function() {
+    var self = this;
+    self.id = '';
+    self.title = '';
+    self.allDay = true;
+    self.start = new Date();
+    self.end = new Date();
+    self.editable = true;
     self.event = new codingsmackdown.Event();
-    self.preparation = new codingsmackdown.Preparation();
-    self.cookingProcedure = new codingsmackdown.CookingProcedure();
-    self.weather = new codingsmackdown.Weather();
+    self.preparation = null;
+    self.cookingProcedure = null;
+    self.weather = null;
     self.cookerLog = [];
-    self.results = new codingsmackdown.Results();
+    self.results = null;
 };
 
 codingsmackdown.Event = function() {
     var self = this;
-    self.startDate = new Date();
-    self.endDate = new Date();
-    self.name = '';
+    self.id = '';
     self.stateChampionship = false;
     self.contactName = '';
     self.contactPhone = '';
@@ -27,6 +40,7 @@ codingsmackdown.Event = function() {
 
 codingsmackdown.Preparation = function () {
     var self = this;
+    self.id = '';
     self.date = new Date();
     self.meatType = '';
     self.brand = '';
@@ -42,6 +56,7 @@ codingsmackdown.Preparation = function () {
 
 codingsmackdown.CookingProcedure = function() {
     var self = this;
+    self.id = '';
     self.date = new Date();
     self.cookingProcedureUsed = '';
     self.targetCookerTemperature = 0;
@@ -58,6 +73,7 @@ codingsmackdown.CookingProcedure = function() {
 
 codingsmackdown.Weather = function() {
     var self = this;
+    self.id = '';
     self.date = new Date();
     self.weatherTemperature = 0;
     self.weatherWind = '';
@@ -67,6 +83,7 @@ codingsmackdown.Weather = function() {
 
 codingsmackdown.CookerLog = function() {
     var self = this;
+    self.id = '';
     self.dateTime = new Date();
     self.cooker = '';
     self.temperatureTop = 0;
@@ -86,6 +103,7 @@ codingsmackdown.CookerLog = function() {
 
 codingsmackdown.Results = function() {
     var self = this;
+    self.id = '';
     self.place = 0;
     self.score = 0;
     self.exteriorAppearance = '';

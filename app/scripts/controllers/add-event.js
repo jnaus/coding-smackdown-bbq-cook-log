@@ -1,10 +1,12 @@
 'use strict';
 
 angular.module('codingSmackdownBbqCookLogApp')
-  .controller('AddEventCtrl', function ($scope, $timeout) {
+  .controller('AddEventCtrl', ['$scope', '$timeout', '$location', 'DataService', function ($scope, $timeout, $location, DataService) {
+        $scope.dt = new Date();
+        $scope.showWeeks = false;
         $scope.startDateOpened = false;
         $scope.endDateOpened = false;
-        $scope.currentLog = new codingsmackdown.Log();
+        $scope.currentLog = new codingsmackdown.LogEntry();
 
         $scope.openStartDate = function() {
             $timeout(function() {
@@ -32,18 +34,14 @@ angular.module('codingSmackdownBbqCookLogApp')
             $scope.dt = null;
         };
 
-        // Disable weekend selection
-        $scope.disabled = function(date, mode) {
-            return ( mode === 'day' && ( date.getDay() === 0 || date.getDay() === 6 ) );
-        };
-
-        $scope.toggleMin = function() {
-            $scope.minDate = ( $scope.minDate ) ? null : new Date();
-        };
-        $scope.toggleMin();
-
         $scope.dateOptions = {
-            'year-format': "'yy'",
-            'starting-day': 1
+            'show-weeks': false,
+            'year-format': "'yyyy'",
+            'starting-day': 0
         };
-  });
+
+        $scope.addNewEvent = function() {
+            DataService.addEvent($scope.currentLog);
+            $location.path('/calendar');
+        }
+  }]);

@@ -20,3 +20,11 @@ body {
     line-height: 1;
     letter-spacing: -1px;
 }
+
+.css-form input.ng-invalid.ng-dirty {
+    background-color: #FA787E;
+}
+
+.css-form input.ng-valid.ng-dirty {
+    background-color: #78FA89;
+}
