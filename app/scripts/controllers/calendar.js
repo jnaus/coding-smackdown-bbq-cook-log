@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('codingSmackdownBbqCookLogApp')
-  .controller('CalendarCtrl', function ($scope) {
+  .controller('CalendarCtrl', function ($scope, $location) {
         /* config object */
         $scope.uiConfig = {
             calendar:{
@@ -30,5 +30,9 @@ angular.module('codingSmackdownBbqCookLogApp')
 
         $scope.alertOnResize = function(){
 
+        };
+
+        $scope.addEvent = function() {
+            $location.path('/add-event')
         };
   });
