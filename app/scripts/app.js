@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('codingSmackdownBbqCookLogApp', ['ngRoute', 'dropstore-ng', 'ui.bootstrap', 'ui.calendar'])
+angular.module('codingSmackdownBbqCookLogApp', ['ngRoute', 'LocalStorageModule', 'ui.bootstrap', 'ui.calendar'])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
@@ -102,7 +102,4 @@ angular.module('codingSmackdownBbqCookLogApp', ['ngRoute', 'dropstore-ng', 'ui.b
       .otherwise({
         redirectTo: '/'
       });
-  })
-    .run(['DataService', function(DataService){
-        DataService.linkAccount();
-    }]);
+  });

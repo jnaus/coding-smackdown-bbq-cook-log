@@ -37,7 +37,8 @@ angular.module('codingSmackdownBbqCookLogApp')
         };
 
         $scope.init = function() {
-            $scope.eventSources = DataService.getCookLogs();
+            var events = DataService.getCookLogs();
+            $scope.eventSources = [events];
         };
 
         $scope.init();

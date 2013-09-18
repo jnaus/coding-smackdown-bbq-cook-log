@@ -4,7 +4,9 @@ angular.module('codingSmackdownBbqCookLogApp')
   .controller('AddEventCtrl', ['$scope', '$timeout', '$location', 'DataService', function ($scope, $timeout, $location, DataService) {
         $scope.dt = new Date();
         $scope.showWeeks = false;
+        $scope.startDate = new Date();
         $scope.startDateOpened = false;
+        $scope.endDate = new Date();
         $scope.endDateOpened = false;
         $scope.currentLog = new codingsmackdown.LogEntry();
 
@@ -41,7 +43,9 @@ angular.module('codingSmackdownBbqCookLogApp')
         };
 
         $scope.addNewEvent = function() {
-            DataService.addEvent($scope.currentLog);
+            $scope.currentLog.start = $scope.startDate.toLocaleString();
+            $scope.currentLog.end = $scope.endDate.toLocaleString();
+            DataService.addCookLog($scope.currentLog);
             $location.path('/calendar');
         }
   }]);
