@@ -1,8 +1,8 @@
 <div class="row-fluid">
     <h2>Upcoming Events</h2>
-    <div>
-        <p>Date: {{ event.Date }}</p>
-        <p>Event: {{ event.Name }}</p>
+    <div ng-repeat="event in cookLogs">
+        <p>Date: {{ event.start }}</p>
+        <p>Event: {{ event.title }}</p>
     </div>
 </div>
 <div class="row-fluid">

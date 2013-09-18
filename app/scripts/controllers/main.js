@@ -1,10 +1,12 @@
 'use strict';
 
 angular.module('codingSmackdownBbqCookLogApp')
-  .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+  .controller('MainCtrl', ['$scope', 'dataService', function ($scope, dataService) {
+        $scope.cookLogs = [];
+
+        $scope.init = function(){
+            $scope.cookLogs = dataService.getCookLogs();
+        }
+
+        $scope.init();
+  }]);

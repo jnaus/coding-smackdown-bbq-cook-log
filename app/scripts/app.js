@@ -102,4 +102,6 @@ angular.module('codingSmackdownBbqCookLogApp', ['ngRoute', 'LocalStorageModule',
       .otherwise({
         redirectTo: '/'
       });
-  });
+  }).run(['dataService', function(dataService){
+        dataService.authenticate();
+    }]);
