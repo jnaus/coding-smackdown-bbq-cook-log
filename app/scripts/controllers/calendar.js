@@ -8,21 +8,28 @@ angular.module('codingSmackdownBbqCookLogApp')
                 height: 450,
                 editable: true,
                 header:{
-                    left: 'month basicWeek basicDay agendaWeek agendaDay',
+                    left: 'month basicWeek basicDay',
                     center: 'title',
                     right: 'today prev,next'
                 },
-                dayClick: $scope.alertEventOnClick,
+                buttonIcons:{
+                    prev: 'icon icon-prev',
+                    next: 'icon icon-next'
+                },
+                eventClick: $scope.eventClick,
                 eventDrop: $scope.alertOnDrop,
                 eventResize: $scope.alertOnResize
             }
         };
 
+        $scope.myCalendar = null;
         $scope.events = [];
-        $scope.eventSources =  [$scope.events];
+        $scope.eventSources =  [];
 
-        $scope.alertEventOnClick = function(){
-
+        $scope.eventClick = function(calEvent, jsEvent, view) {
+            alert('Event: ' + calEvent.title);
+            alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
+            alert('View: ' + view.name);
         };
 
         $scope.alertOnDrop = function() {
@@ -40,6 +47,8 @@ angular.module('codingSmackdownBbqCookLogApp')
         $scope.init = function() {
             dataService.getCookLogs().then(function(events){
                 $scope.events = events;
+                $scope.myCalendar.fullCalendar('removeEvents');
+                $scope.myCalendar.fullCalendar('addEventSource', $scope.events);
             });
         };
 

@@ -1,5 +1,15 @@
 var codingsmackdown = codingsmackdown || {};
 
+codingsmackdown.PrepEvent = function() {
+    var self = this;
+    self.id = '';
+    self.title = '';
+    self.allDay = true;
+    self.start = '';
+    self.end = '';
+    self.editable = true;
+};
+
 codingsmackdown.LogEntry = function() {
     var self = this;
     self.id = '';
