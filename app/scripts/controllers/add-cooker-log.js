@@ -6,9 +6,12 @@ angular.module('codingSmackdownBbqCookLogApp')
         $scope.tempLog = new codingsmackdown.CookerLog();
 
         $scope.addNewEvent = function() {
-            var date = new Date();
-            $scope.tempLog.dateTime = date.toLocaleString();
-            $scope.currentLog.cookerLog.push($scope.tempLog);
+            if(!$routeParams['index']){
+                var date = new Date();
+                $scope.tempLog.id =  $scope.currentLog.cookerLog.length + 1;
+                $scope.tempLog.dateTime = date.toLocaleString();
+                $scope.currentLog.cookerLog.push($scope.tempLog);
+            }
             dataService.saveCookLog();
             $location.path('/cooklog/' + $scope.currentLog.id);
         };
@@ -18,6 +21,14 @@ angular.module('codingSmackdownBbqCookLogApp')
                 $scope.currentLog = dataService.getCookLog($routeParams['id']);
                 if(!$scope.currentLog.cookerLog){
                     $scope.currentLog.cookerLog = [];
+                } else {
+                    if($routeParams['index']){
+                        for(var i = 0; i < $scope.currentLog.cookerLog.length; i++ ){
+                            if(i == $routeParams['index']){
+                                $scope.tempLog = $scope.currentLog.cookerLog[i];
+                            }
+                        }
+                    }
                 }
             }
         };

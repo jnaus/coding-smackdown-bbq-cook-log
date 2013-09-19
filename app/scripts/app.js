@@ -55,6 +55,10 @@ angular.module('codingSmackdownBbqCookLogApp', ['ngRoute', 'ui.bootstrap', 'ui.c
                 templateUrl: 'views/add-cooker-log.html',
                 controller: 'AddCookerLogCtrl'
             })
+            .when('/add-cooker-log/:id/:index', {
+                templateUrl: 'views/add-cooker-log.html',
+                controller: 'AddCookerLogCtrl'
+            })
             .when('/add-results-log/:id', {
                 templateUrl: 'views/add-results-log.html',
                 controller: 'AddResultsLogCtrl'

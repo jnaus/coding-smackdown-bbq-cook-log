@@ -26,6 +26,11 @@ angular.module('codingSmackdownBbqCookLogApp')
             $location.path('/add-cooker-log/' + $scope.cookLog.id);
         };
 
+        $scope.editCookEntry = function(index){
+            $location.path('/add-cooker-log/' + $scope.cookLog.id + '/' + index);
+        };
+
+
         $scope.editResults = function(){
             $location.path('/add-results-log/' + $scope.cookLog.id);
         };
