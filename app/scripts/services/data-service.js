@@ -17,7 +17,7 @@ angular.module('codingSmackdownBbqCookLogApp')
 
             readFileHandler: function(apiError, fileContents, fileStat, rangeInfo) {
                 if(apiError){
-                    dataService.deferredCookLogRequest.reject(apiError.responseText());
+                    dataService.deferredCookLogRequest.reject(apiError.responseText.error);
                 }
                 else {
                     dataService.cookLogs = angular.fromJson(fileContents);
@@ -27,7 +27,7 @@ angular.module('codingSmackdownBbqCookLogApp')
 
             writeFileHandler: function(apiError, fileStat){
                 if(apiError){
-                    alert(apiError.responseText());
+                    alert(apiError.responseText.error);
                 }
             },
 
@@ -98,6 +98,10 @@ angular.module('codingSmackdownBbqCookLogApp')
                 for(i = 0; i < itemIndexes.length; i++){
                     dataService.cookLogs.splice(itemIndexes[i], 1);
                 }
+            },
+
+            saveCookLog: function(){
+                dataService.client.writeFile('bbq-cook-log.json', angular.toJson(dataService.cookLogs), {noOverwrite : false}, dataService.writeFileHandler);
             }
         };
 

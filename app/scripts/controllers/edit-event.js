@@ -1,14 +1,14 @@
 'use strict';
 
 angular.module('codingSmackdownBbqCookLogApp')
-  .controller('AddEventCtrl', ['$scope', '$timeout', '$location', '$routeParams', 'dataService', function ($scope, $timeout, $location, $routeParams,  dataService) {
+  .controller('EditEventCtrl', ['$scope', '$timeout', '$location', '$routeParams', 'dataService', function ($scope, $timeout, $location, $routeParams,  dataService) {
         $scope.dt = new Date();
         $scope.showWeeks = false;
         $scope.startDate = new Date();
         $scope.startDateOpened = false;
         $scope.endDate = new Date();
         $scope.endDateOpened = false;
-        $scope.currentLog = new codingsmackdown.LogEntry();
+        $scope.currentLog = null;
 
         $scope.openStartDate = function() {
             $timeout(function() {
@@ -43,16 +43,15 @@ angular.module('codingSmackdownBbqCookLogApp')
         };
 
         $scope.addNewEvent = function() {
-            $scope.currentLog.start = $scope.startDate.toISOString();
-            $scope.currentLog.end = $scope.endDate.toISOString();
-            dataService.addCookLog($scope.currentLog);
-            $location.path('/calendar');
+            dataService.saveCookLog();
+            $location.path('/cooklog/' + $scope.currentLog.id);
         };
 
         $scope.init = function(){
-            if($routeParams['date']){
-                $scope.startDate = new Date($routeParams['date']);
-                $scope.endDate = new Date($routeParams['date']);
+            if($routeParams['id']){
+                $scope.currentLog = dataService.getCookLog($routeParams['id']);
+                $scope.startDate = new Date($scope.currentLog.start);
+                $scope.endDate = new Date($scope.currentLog.end);
             }
         };
 

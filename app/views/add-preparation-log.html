@@ -1,1 +1,104 @@
-<p>This is the add-preparation-log view.</p>
+<div class="row-fluid">
+    <form class="form form-horizontal" name="addPreparation">
+        <fieldset>
+            <div class="control-group">
+                <label class="control-label" for="meatType">Type of Meat </label>
+
+                <div class="controls">
+                    <input class="input-large" id="meatType" name="meatType" type="text"
+                           ng-model="currentLog.preparation.meatType" required>
+
+                    <div ng-show="addPreparation.meatType.$error.required && addPreparation.$dirty">
+                        <p><i class="icon icon-warning-sign"></i>Please enter a type of meat</p>
+                    </div>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="brand">Brand </label>
+
+                <div class="controls">
+                    <input class="input-large" id="brand" name="brand" type="text"
+                           ng-model="currentLog.preparation.brand"/>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="weight">Weight </label>
+
+                <div class="controls">
+                    <input class="input-large" id="weight" name="weight" type="number"
+                           ng-min="1" ng-model="currentLog.preparation.weight" required>
+
+                    <div ng-show="addPreparation.weight.$error.required && addPreparation.$dirty">
+                        <p><i class="icon icon-warning-sign"></i>Please enter a weight</p>
+                    </div>
+                    <div ng-show="addPreparation.weight.$error.min && addPreparation.$dirty">
+                        <p><i class="icon icon-warning-sign"></i>Please enter a value greater than 1</p>
+                    </div>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="price">Price </label>
+
+                <div class="controls">
+                    <input class="input-large" id="price" name="price" type="number"
+                           ng-model="currentLog.preparation.pricePerPound">
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <label class="checkbox">
+                        <input class="input-large" id="fresh" name="fresh" type="checkbox"
+                               ng-model="currentLog.preparation.fresh">
+                        Meat was fresh </label>
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <label class="checkbox">
+                        <input class="input-large" id="frozen" name="frozen" type="checkbox"
+                               ng-model="currentLog.preparation.frozen">
+                        Meat was frozen </label>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="prepUsed">Preparation Used </label>
+
+                <div class="controls">
+                    <input class="input-large" id="prepUsed" name="prepUsed" type="text"
+                           ng-model="currentLog.preparation.prepProcedureUsed"/>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="marinade">Marinade </label>
+
+                <div class="controls">
+                    <input class="input-large" id="marinade" name="marinade" type="text"
+                           ng-model="currentLog.preparation.marinade"/>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="rub">Rub </label>
+
+                <div class="controls">
+                    <input class="input-large" id="rub" name="rub" type="text"
+                           ng-model="currentLog.preparation.rub"/>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="baste">Baste </label>
+
+                <div class="controls">
+                    <input class="input-large" id="baste" name="baste" type="text"
+                           ng-model="currentLog.preparation.baste"/>
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <a name="saveBtn" ng-click="addNewEvent()" ng-disabled="addEvent.$invalid"
+                       class="btn btn-large btn-primary">Save</a>
+                    <a href="#/" name="cancelBtn" class="btn btn-large btn-danger">Cancel</a>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>

@@ -1,1 +1,137 @@
-<p>This is the cooklog view.</p>
+<div class="row-fluid">
+    <h2>{{ cookLog.title }}</h2>
+    <div>
+        <h3>Check In: {{ cookLog.start }}</h3>
+        <h3>Cook Date: {{ cookLog.end }}</h3>
+    </div>
+    <h2>Event Info <i class="icon icon-edit" ng-click="editEvent()"></i></h2>
+    <div>
+        <div ng-show="cookLog.event.stateChampionship">State Championship</div>
+        <div ng-show="cookLog.event.eventWebsite.length">Website: <a ng-href="{{ cookLog.event.eventWebsite }}">{{ cookLog.event.eventWebsite }}</a> </div>
+        <h3>Contact</h3>
+        <div>Name: {{ cookLog.event.contactName }}</div>
+        <div>Phone: {{ cookLog.event.contactPhone }}</div>
+        <div>Email: {{ cookLog.event.contactEmail }}</div>
+    </div>
+    <h2>Weather <i class="icon icon-edit" ng-click="editWeather()"></i></h2>
+    <div ng-show="cookLog.weather">
+        <div>Temperature: {{ cookLog.weather.weatherTemperature }}</div>
+        <div>Wind: {{ cookLog.weather.weatherWind }}</div>
+        <div>Cloud Cover: {{ cookLog.weather.weatherCloudCover }}</div>
+        <div>Conditions: {{ cookLog.weather.weatherConditions }}</div>
+    </div>
+    <div ng-hide="cookLog.weather">
+        <div>No weather information</div>
+    </div>
+    <h2>Preparation <i class="icon icon-edit" ng-click="editPrep()"></i></h2>
+    <div ng-show="cookLog.preparation">
+        <div>Meat/Type: {{ cookLog.preparation.meatType }}</div>
+        <div>Meat/Brand: {{ cookLog.preparation.brand }}</div>
+        <div>Meat/Weight: {{ cookLog.preparation.weight }}</div>
+        <div>Meat/Price: {{ cookLog.preparation.pricePerPound }}</div>
+        <div ng-show="cookLog.preparation.fresh">Meat was fresh</div>
+        <div ng-show="cookLog.preparation.frozen">Meat was frozen</div>
+        <div>Preparation: {{ cookLog.preparation.prepProcedureUsed }}</div>
+        <div>Marinade: {{ cookLog.preparation.marinade }}</div>
+        <div>Rub: {{ cookLog.preparation.rub }}</div>
+        <div>Baste: {{ cookLog.preparation.baste }}</div>
+    </div>
+    <div ng-hide="cookLog.preparation">
+        <div>No preparation information</div>
+    </div>
+    <h2>Cooking Procedure <i class="icon icon-edit" ng-click="editCookingProcedure()"></i></h2>
+    <div ng-show="cookLog.cookingProcedure">
+        <div>Procedure Used: {{ cookLog.cookingProcedure.cookingProcedureUsed }}</div>
+        <div>Target Temperature: {{ cookLog.cookingProcedure.targetCookerTemperature }}</div>
+        <div>Target Internal Temperature: {{ cookLog.cookingProcedure.targetInternalTemperature }}</div>
+        <div>Fuel Type: {{ cookLog.cookingProcedure.fuelType }}</div>
+        <div>Fuel Brand: {{ cookLog.cookingProcedure.fuelBrand }}</div>
+        <div>Fuel Quantity Used: {{ cookLog.cookingProcedure.fuelQuantityUsed }}</div>
+        <div>Wood Type: {{ cookLog.cookingProcedure.woodType }}</div>
+        <div>Wood Quantity Used: {{ cookLog.cookingProcedure.woodQuantityUsed }}</div>
+        <div ng-show="cookLog.cookingProcedure.woodDry">Wood was dry</div>
+        <div ng-show="cookLog.cookingProcedure.woodSoaked">Wood was soaked</div>
+        <div>Commands: {{ cookLog.cookingProcedure.preCookComments }}</div>
+    </div>
+    <div ng-hide="cookLog.cookingProcedure">
+        <div>No cooking procedure information</div>
+    </div>
+    <h2>Cooking Log <i class="icon icon-plus" ng-click="addCookEntry()"></i></h2>
+    <div ng-show="cookLog.cookerLog.length">
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>{{ logEntry.dateTime }}</th>
+                <th>{{ logEntry.cooker }}</th>
+                <th>{{ logEntry.temperatureTop }}</th>
+                <th>{{ logEntry.temperatureBottom }}</th>
+                <th>{{ logEntry.temperatureMeat }}</th>
+                <th>{{ logEntry.temperatureAir }}</th>
+                <th>{{ logEntry.ventOnePercentOpen }}</th>
+                <th>{{ logEntry.ventTwoPercentOpen }}</th>
+                <th>{{ logEntry.ventThreePercentOpen }}</th>
+                <th><div ng-show="logEntry.turnMeat">Y</div><div ng-hide="logEntry.turnMeat">N</div></th>
+                <th><div ng-show="logEntry.basteMeat">Y</div><div ng-hide="logEntry.basteMeat">N</div></th>
+                <th><div ng-show="logEntry.addedFuel">Y</div><div ng-hide="logEntry.addedFuel">N</div></th>
+                <th><div ng-show="logEntry.addedWood">Y</div><div ng-hide="logEntry.addedWood">N</div></th>
+                <th><div ng-show="logEntry.addedWater">Turned Meat</div><div ng-hide="logEntry.addedWater">N</div></th>
+                <th>{{ logEntry.comments }}</th>
+                <th>&nbsp;</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="logEntry in cookLog.cookerLog">
+                    <td>{{ logEntry.dateTime }}</td>
+                    <td>{{ logEntry.cooker }}</td>
+                    <td>{{ logEntry.temperatureTop }}</td>
+                    <td>{{ logEntry.temperatureBottom }}</td>
+                    <td>{{ logEntry.temperatureMeat }}</td>
+                    <td>{{ logEntry.temperatureAir }}</td>
+                    <td>{{ logEntry.ventOnePercentOpen }}</td>
+                    <td>{{ logEntry.ventTwoPercentOpen }}</td>
+                    <td>{{ logEntry.ventThreePercentOpen }}</td>
+                    <td><div ng-show="logEntry.turnMeat">Y</div><div ng-hide="logEntry.turnMeat">N</div></td>
+                    <td><div ng-show="logEntry.basteMeat">Y</div><div ng-hide="logEntry.basteMeat">N</div></td>
+                    <td><div ng-show="logEntry.addedFuel">Y</div><div ng-hide="logEntry.addedFuel">N</div></td>
+                    <td><div ng-show="logEntry.addedWood">Y</div><div ng-hide="logEntry.addedWood">N</div></td>
+                    <td><div ng-show="logEntry.addedWater">Turned Meat</div><div ng-hide="logEntry.addedWater">N</div></td>
+                    <td>{{ logEntry.comments }}</td>
+                    <td><i class="icon icon-edit" ng-click="editCookEntry($index)"></i></td>
+                </tr>
+            </tbody>
+        </table>
+        <div>Procedure Used: {{ cookLog.cookingProcedure.cookingProcedureUsed }}</div>
+        <div>Target Temperature: {{ cookLog.cookingProcedure.targetCookerTemperature }}</div>
+        <div>Target Internal Temperature: {{ cookLog.cookingProcedure.targetInternalTemperature }}</div>
+        <div>Fuel Type: {{ cookLog.cookingProcedure.fuelType }}</div>
+        <div>Fuel Brand: {{ cookLog.cookingProcedure.fuelBrand }}</div>
+        <div>Fuel Quantity Used: {{ cookLog.cookingProcedure.fuelQuantityUsed }}</div>
+        <div>Wood Type: {{ cookLog.cookingProcedure.woodType }}</div>
+        <div>Wood Quantity Used: {{ cookLog.cookingProcedure.woodQuantityUsed }}</div>
+        <div ng-show="cookLog.cookingProcedure.woodDry">Wood was dry</div>
+        <div ng-show="cookLog.cookingProcedure.woodSoaked">Wood was soaked</div>
+        <div>Commands: {{ cookLog.cookingProcedure.preCookComments }}</div>
+    </div>
+    <div ng-hide="cookLog.cookerLog.length">
+        <div>No cook log information</div>
+    </div>
+    <h2>Results <i class="icon icon-edit" ng-click="editResults()"></i></h2>
+    <div ng-show="cookLog.results">
+        <div>Place: {{ cookLog.results.place }}</div>
+        <div>Score: {{ cookLog.results.score }}</div>
+        <div>Appearance Score: {{ cookLog.results.apperanceScore }}</div>
+        <div>Appearance: {{ cookLog.results.exteriorAppearance }}</div>
+        <div>Smoke Ring: {{ cookLog.results.smokeRingPenetration }}</div>
+        <div>Taste Score: {{ cookLog.results.tasteScore }}</div>
+        <div>Flavor: {{ cookLog.results.flavor }}</div>
+        <div>Aroma: {{ cookLog.results.aroma }}</div>
+        <div>Tenderness Score: {{ cookLog.results.tendernessScore }}</div>
+        <div>Tenderness: {{ cookLog.results.tenderness }}</div>
+        <div>Moisture: {{ cookLog.results.moisture }}</div>
+        <div>Comments: {{ cookLog.results.comments }}</div>
+        <div>Future Prep Notes: {{ cookLog.results.notesForFuturePreparation }}</div>
+    </div>
+    <div ng-hide="cookLog.results">
+        <div>No result information</div>
+    </div>
+</div>

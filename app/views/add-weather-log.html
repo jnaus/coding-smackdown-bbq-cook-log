@@ -1,1 +1,56 @@
-<p>This is the add-weather-log view.</p>
+<div class="row-fluid">
+    <form class="form form-horizontal" name="addWeather">
+        <fieldset>
+            <div class="control-group">
+                <label class="control-label" for="temperatureInput">Temperature </label>
+
+                <div class="controls">
+                    <input class="input-large" id="temperatureInput" name="temperatureInput" type="number"
+                           ng-min="0" mg-max="120" ng-model="currentLog.weather.weatherTemperature" required>
+                    <div ng-show="addWeather.temperatureInput.$error.required && addWeather.$dirty">
+                        <p><i class="icon icon-warning-sign"></i>Please enter a temperature</p>
+                    </div>
+                    <div ng-show="addWeather.temperatureInput.$error.min && addWeather.$dirty">
+                        <p><i class="icon icon-warning-sign"></i>Please enter a value greater than 0</p>
+                    </div>
+                    <div ng-show="addWeather.temperatureInput.$error.max && addWeather.$dirty">
+                        <p><i class="icon icon-warning-sign"></i>Please enter a value less than 120</p>
+                    </div>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="windInput">Wind </label>
+
+                <div class="controls">
+                    <input class="input-large" id="windInput" name="windInput" type="text"
+                           ng-model="currentLog.weather.weatherWind" />
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="cloudCover">Cloud Cover </label>
+
+                <div class="controls">
+                    <input class="input-large" id="cloudCover" name="cloudCover" type="text"
+                           ng-model="currentLog.weather.weatherCloudCover" required>
+                    <div ng-show="addWeather.cloudCover.$error.required && addWeather.$dirty">
+                        <p><i class="icon icon-warning-sign"></i>Please enter the cloud cover</p>
+                    </div>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="conditions">Conditions </label>
+
+                <div class="controls">
+                    <input class="input-large" id="conditions" name="conditions" type="text"
+                           ng-model="currentLog.weather.weatherConditions" >
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <a name="saveBtn" ng-click="addNewEvent()" ng-disabled="addWeather.$invalid" class="btn btn-large btn-primary" >Save</a>
+                    <a href="#/" name="cancelBtn" class="btn btn-large btn-danger">Cancel</a>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
