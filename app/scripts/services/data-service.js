@@ -63,7 +63,7 @@ angular.module('codingSmackdownBbqCookLogApp')
                 }
 
                 var shopDate = new Date(newLog.start);
-                shopDate.setDate(shopDate.getDate() - 2);
+                shopDate.setDate(shopDate.getDate() - 1);
                 var shopEvent = new codingsmackdown.PrepEvent();
                 shopEvent.id = newLog.id;
                 shopEvent.title = 'Pickup Meat - ' + newLog.title;

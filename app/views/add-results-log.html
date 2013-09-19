@@ -1,1 +1,134 @@
-<p>This is the add-results-log view.</p>
+<div class="row-fluid">
+    <form class="form form-horizontal" name="addResults">
+        <fieldset>
+            <div class="control-group">
+                <label class="control-label" for="place">Place </label>
+
+                <div class="controls">
+                    <input class="input-large" id="place" name="place" type="number"
+                           ng-model="currentLog.results.place">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="score">Total Score </label>
+
+                <div class="controls">
+                    <input class="input-large" id="score" name="score" type="number"
+                           ng-model="currentLog.results.score">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="appearanceScore">Appearance Score </label>
+
+                <div class="controls">
+                    <input class="input-large" id="appearanceScore" name="appearanceScore" type="number"
+                           min="0" max="9" ng-model="currentLog.results.appearanceScore" />
+                    <div ng-show="addResults.appearanceScore.$error.min && addResults.$dirty">
+                        <p><i class="icon icon-warning-sign"></i>Please enter a value greater than 0</p>
+                    </div>
+                    <div ng-show="addResults.appearanceScore.$error.min && addResults.$dirty">
+                        <p><i class="icon icon-warning-sign"></i>Please enter a value less than 9</p>
+                    </div>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="exteriorAppearance">Appearance </label>
+
+                <div class="controls">
+                    <input class="input-large" id="exteriorAppearance" name="exteriorAppearance" type="text"
+                           ng-model="currentLog.results.exteriorAppearance" >
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="smokeRingPenetration">Smoke Ring </label>
+
+                <div class="controls">
+                    <input class="input-large" id="smokeRingPenetration" name="smokeRingPenetration" type="text"
+                           ng-model="currentLog.results.smokeRingPenetration" >
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="tendernessScore">Tenderness Score </label>
+
+                <div class="controls">
+                    <input class="input-large" id="tendernessScore" name="tendernessScore" type="number"
+                           min="0" max="9" ng-model="currentLog.results.tendernessScore" />
+                    <div ng-show="addResults.tendernessScore.$error.min && addResults.$dirty">
+                        <p><i class="icon icon-warning-sign"></i>Please enter a value greater than 0</p>
+                    </div>
+                    <div ng-show="addResults.tendernessScore.$error.min && addResults.$dirty">
+                        <p><i class="icon icon-warning-sign"></i>Please enter a value less than 9</p>
+                    </div>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="tenderness">Tenderness </label>
+
+                <div class="controls">
+                    <input class="input-large" id="tenderness" name="tenderness" type="text"
+                           ng-model="currentLog.results.tenderness" >
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="moisture">Moisture </label>
+
+                <div class="controls">
+                    <input class="input-large" id="moisture" name="moisture" type="text"
+                           ng-model="currentLog.results.moisture" >
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="tasteScore">Taste Score </label>
+
+                <div class="controls">
+                    <input class="input-large" id="tasteScore" name="tasteScore" type="number"
+                           min="0" max="9" ng-model="currentLog.results.tasteScore" />
+                    <div ng-show="addResults.tasteScore.$error.min && addResults.$dirty">
+                        <p><i class="icon icon-warning-sign"></i>Please enter a value greater than 0</p>
+                    </div>
+                    <div ng-show="addResults.tasteScore.$error.min && addResults.$dirty">
+                        <p><i class="icon icon-warning-sign"></i>Please enter a value less than 9</p>
+                    </div>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="flavor">Taste </label>
+
+                <div class="controls">
+                    <input class="input-large" id="flavor" name="flavor" type="text"
+                           ng-model="currentLog.results.flavor" >
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="aroma">Aroma </label>
+
+                <div class="controls">
+                    <input class="input-large" id="aroma" name="aroma" type="text"
+                           ng-model="currentLog.results.aroma" >
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="comments">Comments </label>
+
+                <div class="controls">
+                    <input class="input-large" id="comments" name="comments" type="text"
+                           ng-model="currentLog.results.comments" >
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="notesForFuturePreparation">Notes for Future Preparation </label>
+
+                <div class="controls">
+                    <input class="input-large" id="notesForFuturePreparation" name="notesForFuturePreparation" type="text"
+                           ng-model="currentLog.results.notesForFuturePreparation" >
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <a name="saveBtn" ng-click="addNewEvent()" ng-disabled="addResults.$invalid" class="btn btn-large btn-primary" >Save</a>
+                    <a href="#/" name="cancelBtn" class="btn btn-large btn-danger">Cancel</a>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>

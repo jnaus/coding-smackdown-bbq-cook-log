@@ -1,1 +1,121 @@
-<p>This is the add-cooking-procedure-log view.</p>
+<div class="row-fluid">
+    <form class="form form-horizontal" name="addCookingProcedure">
+        <fieldset>
+            <div class="control-group">
+                <label class="control-label" for="procedureUsed">Cooking Procedure Used </label>
+
+                <div class="controls">
+                    <input class="input-large" id="procedureUsed" name="procedureUsed" type="text"
+                           ng-model="currentLog.cookingProcedure.cookingProcedureUsed" required>
+
+                    <div ng-show="addCookingProcedure.cookingProcedureUsed.$error.required && addCookingProcedure.$dirty">
+                        <p><i class="icon icon-warning-sign"></i>Please enter the cooking procedure used</p>
+                    </div>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="targetCookerTemperature">Target Cooker Temperature </label>
+
+                <div class="controls">
+                    <input class="input-large" id="targetCookerTemperature" name="targetCookerTemperature" type="number" min="100" max="400"
+                           ng-model="currentLog.cookingProcedure.targetCookerTemperature" required>
+                    <div ng-show="addCookingProcedure.targetCookerTemperature.$error.required && addCookingProcedure.$dirty">
+                        <p><i class="icon icon-warning-sign"></i>Please enter the target cooker temperature</p>
+                    </div>
+                    <div ng-show="addCookingProcedure.targetCookerTemperature.$error.min && addCookingProcedure.$dirty">
+                        <p><i class="icon icon-warning-sign"></i>Please enter a value greater than 100</p>
+                    </div>
+                    <div ng-show="addCookingProcedure.targetCookerTemperature.$error.min && addCookingProcedure.$dirty">
+                        <p><i class="icon icon-warning-sign"></i>Please enter a value less than 400</p>
+                    </div>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="targetInternalTemperature">Target Internal Temperature </label>
+
+                <div class="controls">
+                    <input class="input-large" id="targetInternalTemperature" name="targetInternalTemperature" type="number"
+                           min="165" ng-model="currentLog.cookingProcedure.targetInternalTemperature" required>
+
+                    <div ng-show="addCookingProcedure.targetInternalTemperature.$error.required && addCookingProcedure.$dirty">
+                        <p><i class="icon icon-warning-sign"></i>Please enter the target internal temperature</p>
+                    </div>
+                    <div ng-show="addCookingProcedure.targetInternalTemperature.$error.min && addCookingProcedure.$dirty">
+                        <p><i class="icon icon-warning-sign"></i>Please enter a value greater than 165</p>
+                    </div>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="fuelType">Fuel Type </label>
+
+                <div class="controls">
+                    <input class="input-large" id="fuelType" name="fuelType" type="text"
+                           ng-model="currentLog.cookingProcedure.fuelType">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="fuelBrand">Fuel Brand </label>
+
+                <div class="controls">
+                    <input class="input-large" id="fuelBrand" name="fuelBrand" type="text"
+                           ng-model="currentLog.cookingProcedure.fuelBrand"/>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="fuelUsed">Fuel Quantity Used </label>
+
+                <div class="controls">
+                    <input class="input-large" id="fuelUsed" name="fuelUsed" type="number"
+                           ng-model="currentLog.cookingProcedure.fuelQuantityUsed"/>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="woodType">Wood Type </label>
+
+                <div class="controls">
+                    <input class="input-large" id="woodType" name="woodType" type="text"
+                           ng-model="currentLog.cookingProcedure.woodType"/>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="woodUsed">Wood Quantity Used </label>
+
+                <div class="controls">
+                    <input class="input-large" id="woodUsed" name="woodUsed" type="number"
+                           ng-model="currentLog.cookingProcedure.woodQuantityUsed"/>
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <label class="checkbox">
+                        <input class="input-large" id="woodDry" name="woodDry" type="checkbox"
+                               ng-model="currentLog.cookingProcedure.woodDry">
+                        Wood was dry </label>
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <label class="checkbox">
+                        <input class="input-large" id="woodSoaked" name="woodSoaked" type="checkbox"
+                               ng-model="currentLog.cookingProcedure.woodSoaked">
+                        Wood was soaked </label>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="preCookComments">Pre-Cook Comments </label>
+
+                <div class="controls">
+                    <input class="input-large" id="preCookComments" name="preCookComments" type="text"
+                           ng-model="currentLog.cookingProcedure.preCookComments"/>
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <a name="saveBtn" ng-click="addNewEvent()" ng-disabled="addEvent.$invalid"
+                       class="btn btn-large btn-primary">Save</a>
+                    <a href="#/" name="cancelBtn" class="btn btn-large btn-danger">Cancel</a>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>

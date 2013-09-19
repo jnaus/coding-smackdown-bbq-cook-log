@@ -6,7 +6,7 @@
 
                 <div class="controls">
                     <input class="input-large" id="temperatureInput" name="temperatureInput" type="number"
-                           ng-min="0" mg-max="120" ng-model="currentLog.weather.weatherTemperature" required>
+                           min="0" max="120" ng-model="currentLog.weather.weatherTemperature" required>
                     <div ng-show="addWeather.temperatureInput.$error.required && addWeather.$dirty">
                         <p><i class="icon icon-warning-sign"></i>Please enter a temperature</p>
                     </div>

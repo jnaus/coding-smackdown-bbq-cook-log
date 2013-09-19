@@ -1,8 +1,8 @@
 <div class="row-fluid">
     <h2>{{ cookLog.title }}</h2>
     <div>
-        <h3>Check In: {{ cookLog.start }}</h3>
-        <h3>Cook Date: {{ cookLog.end }}</h3>
+        <h3>Check In: {{ startDate }}</h3>
+        <h3>Cook Date: {{ endDate }}</h3>
     </div>
     <h2>Event Info <i class="icon icon-edit" ng-click="editEvent()"></i></h2>
     <div>
@@ -51,7 +51,7 @@
         <div>Wood Quantity Used: {{ cookLog.cookingProcedure.woodQuantityUsed }}</div>
         <div ng-show="cookLog.cookingProcedure.woodDry">Wood was dry</div>
         <div ng-show="cookLog.cookingProcedure.woodSoaked">Wood was soaked</div>
-        <div>Commands: {{ cookLog.cookingProcedure.preCookComments }}</div>
+        <div>Comments: {{ cookLog.cookingProcedure.preCookComments }}</div>
     </div>
     <div ng-hide="cookLog.cookingProcedure">
         <div>No cooking procedure information</div>
@@ -61,21 +61,21 @@
         <table class="table table-bordered">
             <thead>
             <tr>
-                <th>{{ logEntry.dateTime }}</th>
-                <th>{{ logEntry.cooker }}</th>
-                <th>{{ logEntry.temperatureTop }}</th>
-                <th>{{ logEntry.temperatureBottom }}</th>
-                <th>{{ logEntry.temperatureMeat }}</th>
-                <th>{{ logEntry.temperatureAir }}</th>
-                <th>{{ logEntry.ventOnePercentOpen }}</th>
-                <th>{{ logEntry.ventTwoPercentOpen }}</th>
-                <th>{{ logEntry.ventThreePercentOpen }}</th>
-                <th><div ng-show="logEntry.turnMeat">Y</div><div ng-hide="logEntry.turnMeat">N</div></th>
-                <th><div ng-show="logEntry.basteMeat">Y</div><div ng-hide="logEntry.basteMeat">N</div></th>
-                <th><div ng-show="logEntry.addedFuel">Y</div><div ng-hide="logEntry.addedFuel">N</div></th>
-                <th><div ng-show="logEntry.addedWood">Y</div><div ng-hide="logEntry.addedWood">N</div></th>
-                <th><div ng-show="logEntry.addedWater">Turned Meat</div><div ng-hide="logEntry.addedWater">N</div></th>
-                <th>{{ logEntry.comments }}</th>
+                <th>Date/Time</th>
+                <th>Cooker</th>
+                <th>Temperature Top</th>
+                <th>Temperature Bottom</th>
+                <th>Temperature Meat</th>
+                <th>Temperature Air</th>
+                <th>Vent 1 % Open</th>
+                <th>Vent 2 % Open</th>
+                <th>Vent 3 % Open</th>
+                <th>Meat Turned</th>
+                <th>Meat Basted</th>
+                <th>Fuel Added</th>
+                <th>Wood Added</th>
+                <th>Water Added</th>
+                <th>Comments</th>
                 <th>&nbsp;</th>
             </tr>
             </thead>
@@ -100,17 +100,6 @@
                 </tr>
             </tbody>
         </table>
-        <div>Procedure Used: {{ cookLog.cookingProcedure.cookingProcedureUsed }}</div>
-        <div>Target Temperature: {{ cookLog.cookingProcedure.targetCookerTemperature }}</div>
-        <div>Target Internal Temperature: {{ cookLog.cookingProcedure.targetInternalTemperature }}</div>
-        <div>Fuel Type: {{ cookLog.cookingProcedure.fuelType }}</div>
-        <div>Fuel Brand: {{ cookLog.cookingProcedure.fuelBrand }}</div>
-        <div>Fuel Quantity Used: {{ cookLog.cookingProcedure.fuelQuantityUsed }}</div>
-        <div>Wood Type: {{ cookLog.cookingProcedure.woodType }}</div>
-        <div>Wood Quantity Used: {{ cookLog.cookingProcedure.woodQuantityUsed }}</div>
-        <div ng-show="cookLog.cookingProcedure.woodDry">Wood was dry</div>
-        <div ng-show="cookLog.cookingProcedure.woodSoaked">Wood was soaked</div>
-        <div>Commands: {{ cookLog.cookingProcedure.preCookComments }}</div>
     </div>
     <div ng-hide="cookLog.cookerLog.length">
         <div>No cook log information</div>
@@ -119,7 +108,7 @@
     <div ng-show="cookLog.results">
         <div>Place: {{ cookLog.results.place }}</div>
         <div>Score: {{ cookLog.results.score }}</div>
-        <div>Appearance Score: {{ cookLog.results.apperanceScore }}</div>
+        <div>Appearance Score: {{ cookLog.results.appearanceScore }}</div>
         <div>Appearance: {{ cookLog.results.exteriorAppearance }}</div>
         <div>Smoke Ring: {{ cookLog.results.smokeRingPenetration }}</div>
         <div>Taste Score: {{ cookLog.results.tasteScore }}</div>

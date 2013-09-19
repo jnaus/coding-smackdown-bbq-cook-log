@@ -1,1 +1,187 @@
-<p>This is the add-cooker-log view.</p>
+<div class="row-fluid">
+    <form class="form form-horizontal" name="addTemperatureLog">
+        <fieldset>
+            <div class="control-group">
+                <label class="control-label" for="procedureUsed">Cooker </label>
+
+                <div class="controls">
+                    <input class="input-large" id="procedureUsed" name="procedureUsed" type="text"
+                           ng-model="tempLog.cooker" required>
+
+                    <div ng-show="addTemperatureLog.cookingProcedureUsed.$error.required && addTemperatureLog.$dirty">
+                        <p><i class="icon icon-warning-sign"></i>Please enter the cooker used</p>
+                    </div>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="temperatureTop">Cooker Top Temperature </label>
+
+                <div class="controls">
+                    <input class="input-large" id="temperatureTop" name="temperatureTop" type="number" min="100" max="400"
+                           ng-model="tempLog.temperatureTop" required>
+                    <div ng-show="addTemperatureLog.temperatureTop.$error.required && addTemperatureLog.$dirty">
+                        <p><i class="icon icon-warning-sign"></i>Please enter the cooker top temperature</p>
+                    </div>
+                    <div ng-show="addTemperatureLog.temperatureTop.$error.min && addTemperatureLog.$dirty">
+                        <p><i class="icon icon-warning-sign"></i>Please enter a value greater than 100</p>
+                    </div>
+                    <div ng-show="addTemperatureLog.temperatureTop.$error.min && addTemperatureLog.$dirty">
+                        <p><i class="icon icon-warning-sign"></i>Please enter a value less than 400</p>
+                    </div>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="temperatureBottom">Cooker Bottom Temperature </label>
+
+                <div class="controls">
+                    <input class="input-large" id="temperatureBottom" name="temperatureBottom" type="number" min="100" max="400"
+                           ng-model="tempLog.temperatureBottom" required>
+                    <div ng-show="addTemperatureLog.temperatureBottom.$error.required && addTemperatureLog.$dirty">
+                        <p><i class="icon icon-warning-sign"></i>Please enter the cooker bottom temperature</p>
+                    </div>
+                    <div ng-show="addTemperatureLog.temperatureBottom.$error.min && addTemperatureLog.$dirty">
+                        <p><i class="icon icon-warning-sign"></i>Please enter a value greater than 100</p>
+                    </div>
+                    <div ng-show="addTemperatureLog.temperatureBottom.$error.min && addTemperatureLog.$dirty">
+                        <p><i class="icon icon-warning-sign"></i>Please enter a value less than 400</p>
+                    </div>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="temperatureMeat">Meat Temperature </label>
+
+                <div class="controls">
+                    <input class="input-large" id="temperatureMeat" name="temperatureMeat" type="number"
+                           min="100" max="400" ng-model="tempLog.temperatureMeat" required>
+
+                    <div ng-show="addTemperatureLog.temperatureMeat.$error.required && addTemperatureLog.$dirty">
+                        <p><i class="icon icon-warning-sign"></i>Please enter the meat temperature</p>
+                    </div>
+                    <div ng-show="addTemperatureLog.temperatureMeat.$error.min && addTemperatureLog.$dirty">
+                        <p><i class="icon icon-warning-sign"></i>Please enter a value greater than 100</p>
+                    </div>
+                    <div ng-show="addTemperatureLog.temperatureMeat.$error.min && addTemperatureLog.$dirty">
+                        <p><i class="icon icon-warning-sign"></i>Please enter a value less than 400</p>
+                    </div>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="temperatureAir">Air Temperature </label>
+
+                <div class="controls">
+                    <input class="input-large" id="temperatureAir" name="temperatureAir" type="number"
+                           ng-model="tempLog.temperatureAir">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="ventOnePercentOpen">Vent 1 Open Percentage </label>
+
+                <div class="controls">
+                    <input class="input-large" id="ventOnePercentOpen" name="ventOnePercentOpen" type="number"
+                           min="0" max="100" ng-model="tempLog.ventOnePercentOpen" required>
+
+                    <div ng-show="addTemperatureLog.ventOnePercentOpen.$error.required && addTemperatureLog.$dirty">
+                        <p><i class="icon icon-warning-sign"></i>Please enter the target internal temperature</p>
+                    </div>
+                    <div ng-show="addTemperatureLog.ventOnePercentOpen.$error.min && addTemperatureLog.$dirty">
+                        <p><i class="icon icon-warning-sign"></i>Please enter a value greater than 0</p>
+                    </div>
+                    <div ng-show="addTemperatureLog.ventOnePercentOpen.$error.min && addTemperatureLog.$dirty">
+                        <p><i class="icon icon-warning-sign"></i>Please enter a value less than 100</p>
+                    </div>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="ventTwoPercentOpen">Vent 2 Open Percentage </label>
+
+                <div class="controls">
+                    <input class="input-large" id="ventTwoPercentOpen" name="ventTwoPercentOpen" type="number"
+                           min="0" max="100" ng-model="tempLog.ventTwoPercentOpen" required>
+
+                    <div ng-show="addTemperatureLog.ventTwoPercentOpen.$error.required && addTemperatureLog.$dirty">
+                        <p><i class="icon icon-warning-sign"></i>Please enter the target internal temperature</p>
+                    </div>
+                    <div ng-show="addTemperatureLog.ventTwoPercentOpen.$error.min && addTemperatureLog.$dirty">
+                        <p><i class="icon icon-warning-sign"></i>Please enter a value greater than 0</p>
+                    </div>
+                    <div ng-show="addTemperatureLog.ventTwoPercentOpen.$error.min && addTemperatureLog.$dirty">
+                        <p><i class="icon icon-warning-sign"></i>Please enter a value less than 100</p>
+                    </div>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="ventThreePercentOpen">Vent 3 Open Percentage </label>
+
+                <div class="controls">
+                    <input class="input-large" id="ventThreePercentOpen" name="ventThreePercentOpen" type="number"
+                           min="0" max="100" ng-model="tempLog.ventThreePercentOpen" required>
+
+                    <div ng-show="addTemperatureLog.ventThreePercentOpen.$error.required && addTemperatureLog.$dirty">
+                        <p><i class="icon icon-warning-sign"></i>Please enter the target internal temperature</p>
+                    </div>
+                    <div ng-show="addTemperatureLog.ventThreePercentOpen.$error.min && addTemperatureLog.$dirty">
+                        <p><i class="icon icon-warning-sign"></i>Please enter a value greater than 0</p>
+                    </div>
+                    <div ng-show="addTemperatureLog.ventThreePercentOpen.$error.min && addTemperatureLog.$dirty">
+                        <p><i class="icon icon-warning-sign"></i>Please enter a value less than 100</p>
+                    </div>
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <label class="checkbox">
+                        <input class="input-large" id="turnMeat" name="turnMeat" type="checkbox"
+                               ng-model="tempLog.turnMeat">
+                        Meat was turned </label>
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <label class="checkbox">
+                        <input class="input-large" id="basteMeat" name="basteMeat" type="checkbox"
+                               ng-model="tempLog.basteMeat">
+                        Meat was basted </label>
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <label class="checkbox">
+                        <input class="input-large" id="addedFuel" name="addedFuel" type="checkbox"
+                               ng-model="tempLog.addedFuel">
+                        Fuel was added </label>
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <label class="checkbox">
+                        <input class="input-large" id="addedWood" name="addedWood" type="checkbox"
+                               ng-model="tempLog.addedWood">
+                        Wood was added </label>
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <label class="checkbox">
+                        <input class="input-large" id="addedWater" name="addedWater" type="checkbox"
+                               ng-model="tempLog.addedWater">
+                        Water was added </label>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="comments">Comments </label>
+
+                <div class="controls">
+                    <input class="input-large" id="comments" name="comments" type="text"
+                           ng-model="tempLog.comments"/>
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <a name="saveBtn" ng-click="addNewEvent()" ng-disabled="addEvent.$invalid"
+                       class="btn btn-large btn-primary">Save</a>
+                    <a href="#/" name="cancelBtn" class="btn btn-large btn-danger">Cancel</a>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
