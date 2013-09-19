@@ -11,20 +11,20 @@ angular.module('codingSmackdownBbqCookLogApp')
                 center: 'title',
                 right: 'today prev,next'
             },
-            dayClick: function(date, allDay, jsEvent, view){
+            dayClick: function(date){
                 $scope.$apply(function(){
                     $location.path('/add-event/' + date.toISOString());
                 });
             },
-            eventClick: function (calEvent, jsEvent, view) {
+            eventClick: function (calEvent) {
                 $scope.$apply(function(){
                     $location.path('/cooklog/' + calEvent.id);
                 });
             },
             eventRender: function(event, element) {
-                var viewHtml = '<a href="#/cooklog/' + event.id + '"><i class="icon icon-file"></i></a>';
-                var editHtml = '<a href="#/edit-event/' + event.id + '"><i class="icon icon-edit"></i></a>';
-                var deleteHtml = '<a href="#/delete-event/' + event.id + '"><i class="icon icon-remove"></i></a>';
+                var viewHtml = '<a href="#/cooklog/' + event.id + '"><i class="icon-white icon-file"></i></a>';
+                var editHtml = '<a href="#/edit-event/' + event.id + '"><i class="icon-white icon-edit"></i></a>';
+                var deleteHtml = '<a href="#/delete-event/' + event.id + '"><i class="icon-white icon-remove"></i></a>';
                 element.append(viewHtml);
                 element.append(editHtml);
                 element.append(deleteHtml);

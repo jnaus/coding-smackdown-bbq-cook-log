@@ -23,10 +23,6 @@ angular.module('codingSmackdownBbqCookLogApp', ['ngRoute', 'ui.bootstrap', 'ui.c
                 templateUrl: 'views/cooktimer.html',
                 controller: 'CooktimerCtrl'
             })
-            .when('/menu', {
-                templateUrl: 'views/menu.html',
-                controller: 'MenuCtrl'
-            })
             .when('/add-event', {
                 templateUrl: 'views/add-event.html',
                 controller: 'AddEventCtrl'

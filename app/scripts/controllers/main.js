@@ -5,10 +5,10 @@ angular.module('codingSmackdownBbqCookLogApp')
         $scope.cookLogs = [];
         $scope.todayEvents = [];
 
-        $scope.init = function(){
+        $scope.init = function () {
             $scope.cookLogs = dataService.getCookLogs();
 
-        }
+        };
 
         $scope.init();
   }]);
