@@ -1,4 +1,4 @@
-<div class="row-fluid">
+<div class="row">
     <h2>{{ cookLog.title }}</h2>
     <div>
         <h3>Check In: {{ startDate }}</h3>
@@ -15,10 +15,9 @@
     </div>
     <h2>Weather <i class="icon icon-edit" ng-click="editWeather()"></i></h2>
     <div ng-show="cookLog.weather">
-        <div>Temperature: {{ cookLog.weather.weatherTemperature }}</div>
-        <div>Wind: {{ cookLog.weather.weatherWind }}</div>
-        <div>Cloud Cover: {{ cookLog.weather.weatherCloudCover }}</div>
-        <div>Conditions: {{ cookLog.weather.weatherConditions }}</div>
+        <div><img ng-src="{{ getWeatherUrl(cookLog.weather) }}" alt="cookLog.weather.weatherCloudCover" class="wx-icon" /><img src="img/met-icons/43.svg" class="wx-icon"  /><span class="x-large">{{ cookLog.weather.weatherTemperature }}</span> <span class="x-large">{{ cookLog.weather.weatherWind }}</span></div>
+        <div>&nbsp;</div>
+        <div>Comments: {{ cookLog.weather.weatherConditions }}</div>
     </div>
     <div ng-hide="cookLog.weather">
         <div>No weather information</div>

@@ -28,3 +28,13 @@ input.ng-invalid.ng-dirty {
 input.ng-valid.ng-dirty {
     background-color: #78FA89;
 }
+
+.x-large {
+    font-size: 35px;
+}
+
+.wx-icon {
+    height: 40px;
+    width: 40px;
+    vertical-align: 0%;
+}

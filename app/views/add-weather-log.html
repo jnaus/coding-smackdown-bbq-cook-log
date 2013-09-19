@@ -30,8 +30,7 @@
                 <label class="control-label" for="cloudCover">Cloud Cover </label>
 
                 <div class="controls">
-                    <input class="input-large" id="cloudCover" name="cloudCover" type="text"
-                           ng-model="currentLog.weather.weatherCloudCover" required>
+                    <select class="input-large" id="cloudCover" name="cloudCover" ng-model="currentLog.weather.weatherCloudCover" ng-options="i.value as i.name for i in cloudConditions" required></select>
                     <div ng-show="addWeather.cloudCover.$error.required && addWeather.$dirty">
                         <p><i class="icon icon-warning-sign"></i>Please enter the cloud cover</p>
                     </div>

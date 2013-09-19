@@ -39,6 +39,10 @@ angular.module('codingSmackdownBbqCookLogApp', ['ngRoute', 'ui.bootstrap', 'ui.c
                 templateUrl: 'views/add-event.html',
                 controller: 'EditEventCtrl'
             })
+            .when('/delete-event/:id', {
+                templateUrl: 'views/add-event.html',
+                controller: 'DeleteEventCtrl'
+            })
             .when('/add-cooking-procedure-log/:id', {
                 templateUrl: 'views/add-cooking-procedure-log.html',
                 controller: 'AddCookingProcedureLogCtrl'

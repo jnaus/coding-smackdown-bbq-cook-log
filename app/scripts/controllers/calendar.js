@@ -20,6 +20,14 @@ angular.module('codingSmackdownBbqCookLogApp')
                 $scope.$apply(function(){
                     $location.path('/cooklog/' + calEvent.id);
                 });
+            },
+            eventRender: function(event, element) {
+                var viewHtml = '<a href="#/cooklog/' + event.id + '"><i class="icon icon-file"></i></a>';
+                var editHtml = '<a href="#/edit-event/' + event.id + '"><i class="icon icon-edit"></i></a>';
+                var deleteHtml = '<a href="#/delete-event/' + event.id + '"><i class="icon icon-remove"></i></a>';
+                element.append(viewHtml);
+                element.append(editHtml);
+                element.append(deleteHtml);
             }
         };
 
