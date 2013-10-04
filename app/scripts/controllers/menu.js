@@ -1,5 +1,8 @@
 'use strict';
 
 angular.module('codingSmackdownBbqCookLogApp')
-  .controller('MenuCtrl', function ($scope) {
-  });
+  .controller('MenuCtrl', ['$scope', 'dataService', function ($scope, dataService) {
+        $scope.linkAccount = function(){
+            dataService.authenticate();
+        }
+  }]);
